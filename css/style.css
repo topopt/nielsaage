@@ -1,0 +1,128 @@
+/* Minimal studio style after jorislaarman.com: white, black type, one sans, lots of air. */
+:root {
+  --ink: #111;
+  --muted: #8a8a8a;
+  --line: #e6e6e6;
+  --bg: #fff;
+  --header: 76px;
+  --gutter: clamp(16px, 4vw, 56px);
+  --font: "Jost", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--bg); color: var(--ink); font: 300 17px/1.7 var(--font); }
+a { color: inherit; text-decoration: none; }
+img, video { display: block; width: 100%; height: auto; }
+
+/* Header: logo centred, menu right */
+.site-header {
+  position: sticky; top: 0; z-index: 10; height: var(--header);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  padding: 0 var(--gutter); background: var(--bg);
+}
+.logo {
+  grid-column: 2; font-weight: 500; font-size: 15px;
+  letter-spacing: .38em; text-transform: uppercase; white-space: nowrap;
+}
+.nav { grid-column: 3; justify-self: end; display: flex; gap: 28px; }
+.nav a, .caps {
+  font-size: 12px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase;
+}
+.nav a { color: var(--muted); transition: color .3s; }
+.nav a:hover, .nav a[aria-current] { color: var(--ink); }
+
+/* Home: full-screen crossfading slideshow */
+.hero { position: relative; height: calc(100svh - var(--header)); overflow: hidden; background: var(--bg); }
+.slide {
+  position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.slide.active { opacity: 1; }
+.slide img, .slide video { width: 100%; height: 100%; object-fit: cover; }
+.slide.contain { padding: 4vh var(--gutter) 10vh; }
+.slide.contain img, .slide.contain video, .slide.large img, .slide.large video { object-fit: contain; }
+.slide.large { padding: 2vh var(--gutter) 8vh; }
+/* Centre of the active slide links to its project; edges are left free for the arrows */
+.slide { pointer-events: none; }
+.slide-link { position: absolute; inset: 10% 18% 16%; }
+.slide.active .slide-link { pointer-events: auto; }
+.slide-caption {
+  position: absolute; left: var(--gutter); bottom: 28px; color: var(--ink);
+  background: rgba(255,255,255,.85); padding: 6px 12px;
+}
+.hero-controls { position: absolute; right: var(--gutter); bottom: 32px; display: flex; gap: 12px; }
+.hero-controls button {
+  width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--ink);
+  background: transparent; cursor: pointer; padding: 0; transition: background .3s;
+}
+.hero-controls button.active { background: var(--ink); }
+.arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  background: none; border: 0; cursor: pointer; font: 200 44px/1 var(--font);
+  color: var(--ink); opacity: 0; transition: opacity .4s; padding: 20px;
+}
+.hero:hover .arrow { opacity: .6; }
+.arrow.prev { left: 0; } .arrow.next { right: 0; }
+
+/* Research grid: masonry of tiles, title only */
+.page { padding: 40px var(--gutter) 80px; }
+.grid { column-count: 3; column-gap: 28px; }
+.tile { display: block; break-inside: avoid; margin-bottom: 40px; }
+.tile-media { position: relative; overflow: hidden; background: #f6f6f6; }
+.tile-media img, .tile-media video { transition: transform 1.2s cubic-bezier(.2,.7,.2,1), opacity .6s; }
+.tile-media video { position: absolute; inset: 0; height: 100%; object-fit: cover; opacity: 0; }
+.tile.playing .tile-media video { opacity: 1; }
+.tile:hover .tile-media img, .tile:hover .tile-media video { transform: scale(1.03); }
+.tile-title { margin-top: 14px; }
+.tile-area { color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+/* Project page */
+.project-lead { max-width: 1400px; margin: 0 auto; }
+/* Never taller than the screen: tall figures shrink to fit, centred */
+.project-lead img, .project-lead video { width: auto; max-width: 100%; max-height: calc(100vh - var(--header) - 40px); margin: 0 auto; }
+.gallery img, .gallery video { width: auto; max-width: 100%; max-height: 80vh; margin: 0 auto; }
+.project-head { max-width: 720px; margin: 56px auto 0; }
+.project-head h1 { font-weight: 400; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: .04em; line-height: 1.2; }
+.project-head .caps { color: var(--muted); display: block; margin-bottom: 14px; }
+.project-text { margin-top: 28px; }
+.project-text a, .prose a { border-bottom: 1px solid var(--line); transition: border-color .3s; }
+.project-text a:hover, .prose a:hover { border-color: var(--ink); }
+/* Row of app icons under a project text, linking to the download page */
+.project-text a.app-icons { display: flex; gap: 14px; margin-top: 24px; border: 0; }
+.app-icons img { width: 52px; height: 52px; border-radius: 12px; object-fit: cover; }
+.todo { color: var(--muted); font-style: italic; }
+.gallery { max-width: 1100px; margin: 72px auto 0; display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: center; }
+.gallery .wide { grid-column: 1 / -1; }
+.gallery[style*="--cols"] { grid-template-columns: repeat(var(--cols), 1fr); }
+.pager { max-width: 1100px; margin: 96px auto 0; display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 24px; }
+.pager a { color: var(--muted); transition: color .3s; }
+.pager a:hover { color: var(--ink); }
+
+/* About */
+.about { max-width: 980px; margin: 40px auto 0; display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+.portrait { aspect-ratio: 4/5; background: #f2f2f2; display: grid; place-items: center; color: var(--muted); }
+.prose p + p { margin-top: 1em; }
+.links { margin-top: 40px; display: grid; gap: 10px; }
+
+/* Footer */
+.site-footer { padding: 40px var(--gutter); border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 40px; color: var(--muted); font-size: 13px; }
+
+/* Entrance: fade content in gently */
+.fade { opacity: 0; transform: translateY(14px); transition: opacity 1s ease, transform 1s ease; }
+.fade.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .fade { opacity: 1; transform: none; transition: none; }
+  .slide { transition: none; }
+}
+
+@media (max-width: 900px) { .grid { column-count: 2; } .about { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 560px) {
+  .gallery[style*="--cols"] { grid-template-columns: 1fr; }
+  :root { --header: 64px; }
+  .grid { column-count: 1; }
+  .site-header { grid-template-columns: 1fr auto; }
+  .logo { grid-column: 1; font-size: 13px; letter-spacing: .28em; }
+  .nav { grid-column: 2; gap: 18px; }
+  .arrow { display: none; }
+}
