@@ -100,7 +100,7 @@ const PROJECTS = [
     slug: "waveguides",
     title: "Microwave, RF and optical devices",
     area: "Wave control",
-    media: ["v:waveguide-anim", "v:optical-waveguide", "waveguide-filter-copper-photo", "pcb-filter-photo", "wpt-setup", "wpt-coil"],
+    media: ["v:waveguide-filter-3d-anim", "v:optical-waveguide", "waveguide-filter-copper-photo", "pcb-filter-photo", "wpt-setup", "wpt-coil"],
     wide: ["v:optical-waveguide", "wpt-coil"], // photonics video and the three coil views span the full gallery width
     text: `Metal inserts shaped by topology optimisation turn a plain rectangular waveguide into a compact filter.
       The designs are machined in copper and verified by measurement, see
