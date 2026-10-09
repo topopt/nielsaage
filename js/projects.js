@@ -34,6 +34,7 @@ const PROJECTS = [
     // shell-thickness-anim-1/2: shell thickness optimisation, side by side; paper link to follow (Boss, 2026-10-09).
     media: ["shell-structure", "v:shell-thickness-anim-1", "v:shell-thickness-anim-2", "lattice-tower", "dehomo-cantilever-2x2", "dehomo-frame-field"],
     wide: ["lattice-tower", "dehomo-cantilever-2x2", "dehomo-frame-field"], // stacked, full gallery width
+    galleryCols: 2, // the two animations share one row, centred
     text: `Optimal structures are often made of thin, curved plates. Homogenisation-based topology optimisation finds
       their layout on a coarse grid, and stream surfaces traced along the optimal directions turn it into a detailed
       shell and lattice structure, here a twisted tower and a jet engine bracket, at a fraction of the cost of a
@@ -97,22 +98,25 @@ const PROJECTS = [
   },
   {
     slug: "waveguides",
-    title: "Microwave and RF devices",
-    area: "RF devices",
-    media: ["v:waveguide-anim", "waveguide-filter-copper-photo", "pcb-filter-photo", "wpt-setup", "wpt-coil"],
-    wide: ["wpt-coil"], // optimised coil, three views
+    title: "Microwave, RF and optical devices",
+    area: "Wave control",
+    media: ["v:waveguide-anim", "v:optical-waveguide", "waveguide-filter-copper-photo", "pcb-filter-photo", "wpt-setup", "wpt-coil"],
+    wide: ["v:optical-waveguide", "wpt-coil"], // photonics video and the three coil views span the full gallery width
     text: `Metal inserts shaped by topology optimisation turn a plain rectangular waveguide into a compact filter.
       The designs are machined in copper and verified by measurement, see
       <a href="https://doi.org/10.1002/nme.5551">IJNME (2017)</a> and
       <a href="https://doi.org/10.1002/mop.31741">Microwave and Optical Technology Letters (2019)</a>. It grew out of
       the PhD work on metallic microwave devices, see <a href="https://doi.org/10.1002/nme.2837">IJNME (2010)</a>, which
-      also optimised resonant coils for wireless energy transfer.`,
+      also optimised resonant coils for wireless energy transfer. The same ideas steer light: stochastic topology
+      optimisation gives photonic components that stay robust to fabrication errors, see
+      <a href="https://doi.org/10.1364/JOSAB.584921">Journal of the Optical Society of America B (2026)</a>.`,
   },
   {
     slug: "wind-turbine-rotor",
     title: "Rotating machines",
     area: "Energy systems",
-    media: ["wind-turbine-rotor", "labyrinth-seals"],
+    media: ["wind-turbine-rotor", "labyrinth-seal-3d"],
+    wide: ["labyrinth-seal-3d"],
     text: `Direct-drive wind turbine generators are heavy, and much of that weight is structure. Topology optimisation
       of the rotor of a 5 MW generator cuts its structural mass by 54 to 67 percent and raises power density by up to
       25 percent, with deflections verified on 3D-printed rotors, see
