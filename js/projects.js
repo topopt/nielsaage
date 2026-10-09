@@ -31,7 +31,8 @@ const PROJECTS = [
     slug: "shells",
     title: "Shell and lattice structures",
     area: "Multiscale design",
-    media: ["shell-structure", "lattice-tower", "dehomo-cantilever-2x2", "dehomo-frame-field"],
+    // shell-thickness-anim-1/2: shell thickness optimisation, side by side; paper link to follow (Boss, 2026-10-09).
+    media: ["shell-structure", "v:shell-thickness-anim-1", "v:shell-thickness-anim-2", "lattice-tower", "dehomo-cantilever-2x2", "dehomo-frame-field"],
     wide: ["lattice-tower", "dehomo-cantilever-2x2", "dehomo-frame-field"], // stacked, full gallery width
     text: `Optimal structures are often made of thin, curved plates. Homogenisation-based topology optimisation finds
       their layout on a coarse grid, and stream surfaces traced along the optimal directions turn it into a detailed
