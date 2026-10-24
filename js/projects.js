@@ -69,13 +69,19 @@ const PROJECTS = [
       structures such as an aircraft fuselage, see <a href="https://doi.org/10.1016/j.tws.2020.107349">Thin-Walled Structures (2020)</a>.`,
   },
   {
-    slug: "fluid-structure",
-    title: "Fluid-structure interaction",
-    area: "Contact mechanics",
-    media: ["v:fsi-streamlines"],
-    text: `A soft valve closing in a flowing fluid bends far and presses against its seat. Combining an immersed
-      solid on a fixed grid with third-medium contact captures flow, large deformation and contact together, without
-      remeshing or explicit contact detection. Ongoing work with Jure Čas and Casper Schousboe Andreasen, paper in preparation.`,
+    slug: "surgical-incisions",
+    title: "Surgical incisions",
+    area: "Surgical procedures",
+    media: ["surgical-procedure-overview", "plasty-concept", "v:plasty-optimisation", "v:plasty-closing", "v:suture-optimisation"],
+    wide: ["plasty-concept", "v:plasty-optimisation", "v:plasty-closing", "v:suture-optimisation"],
+    text: `Where and how a surgeon cuts and sutures changes how tissue deforms and heals. Incisions and sutures modelled
+      on fixed structured grids make such questions fast to explore, see
+      <a href="https://doi.org/10.1016/j.jmbbm.2024.106692">JMBBM (2024)</a>. On the same grid, gradient-based
+      optimisation now designs the rhombic transposition flap and the excision it closes: up to eight variables, the
+      flap angles, the cut lengths and the size, shape and position of the excision. The best design adds 78 percent
+      less energy to the skin than the classical Limberg flap. Paper in preparation. Where to
+      place the sutures is itself a design problem: topology optimisation of the suture distribution closes the wound
+      while keeping peak tissue strain low.`,
   },
   {
     slug: "hearing-instruments",
@@ -127,15 +133,13 @@ const PROJECTS = [
       rotor and stator can be designed by topology optimisation too, see <a href="https://doi.org/10.1016/j.cma.2023.116716">CMAME (2023)</a>.`,
   },
   {
-    slug: "surgical-incisions",
-    title: "Surgical incisions",
-    area: "Surgical procedures",
-    media: ["surgical-procedure-overview", "v:suture-optimisation", "v:incision-90-90", "v:incision-60-60", "v:wound-closure"],
-    wide: ["v:suture-optimisation"], // optimisation history: strain field, convergence, suture layout
-    text: `Where and how a surgeon cuts and sutures changes how tissue deforms and heals. Incisions and sutures modelled
-      on fixed structured grids make such questions fast to explore, see
-      <a href="https://doi.org/10.1016/j.jmbbm.2024.106692">JMBBM (2024)</a>. Where to place the sutures is itself a
-      design problem: topology optimisation of the suture distribution closes the wound while keeping peak tissue strain low.`,
+    slug: "fluid-structure",
+    title: "Fluid-structure interaction",
+    area: "Contact mechanics",
+    media: ["v:fsi-streamlines"],
+    text: `A soft valve closing in a flowing fluid bends far and presses against its seat. Combining an immersed
+      solid on a fixed grid with third-medium contact captures flow, large deformation and contact together, without
+      remeshing or explicit contact detection. Ongoing work with Jure Čas and Casper Schousboe Andreasen, paper in preparation.`,
   },
   {
     slug: "vibroacoustics",
