@@ -37,6 +37,15 @@ function hero(el) {
   dots.forEach((d, k) => d.onclick = () => show(k));
   $(".prev", el).onclick = () => show(cur - 1);
   $(".next", el).onclick = () => show(cur + 1);
+  // Touch: horizontal swipe changes slide (arrows only appear on hover)
+  let x0, y0;
+  el.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+  el.addEventListener("touchend", e => {
+    if (x0 == null) return;
+    const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
+    x0 = null;
+  }, { passive: true });
   show(0);
 }
 

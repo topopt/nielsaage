@@ -33,7 +33,7 @@ img, video { display: block; width: 100%; height: auto; }
 .nav a:hover, .nav a[aria-current] { color: var(--ink); }
 
 /* Home: full-screen crossfading slideshow */
-.hero { position: relative; height: calc(100svh - var(--header)); overflow: hidden; background: var(--bg); }
+.hero { position: relative; height: calc(100svh - var(--header)); overflow: hidden; background: var(--bg); touch-action: pan-y; }
 .slide {
   position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s ease;
   display: flex; align-items: center; justify-content: center;

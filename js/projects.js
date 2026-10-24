@@ -220,4 +220,4 @@ const PROJECTS = [
 ];
 
 // Home page slideshow: slugs in order.
-const HERO = ["giga-voxel-wing", "heat-sinks", "bone-like-infill", "hearing-instruments"];
+const HERO = ["giga-voxel-wing", "heat-sinks", "bone-like-infill", "surgical-incisions"];
