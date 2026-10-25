@@ -126,3 +126,5 @@ img, video { display: block; width: 100%; height: auto; }
   .nav { grid-column: 2; gap: 18px; }
   .arrow { display: none; }
 }
+/* iOS Low Power Mode: hide Safari's big play button; the first touch starts the videos (site.js) */
+video::-webkit-media-controls-start-playback-button { display: none !important; }

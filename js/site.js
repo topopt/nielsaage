@@ -68,8 +68,8 @@ function grid(el) {
   el.querySelectorAll(".tile").forEach(t => {
     const v = $("video", t);
     if (!v) return;
-    const play = () => { t.classList.add("playing"); v.play().catch(() => {}); };
-    const stop = () => { t.classList.remove("playing"); v.pause(); };
+    const play = () => { t.classList.add("playing"); v.dataset.want = 1; tryPlay(v); };
+    const stop = () => { t.classList.remove("playing"); delete v.dataset.want; v.pause(); };
     if (touch) new IntersectionObserver(([e]) => e.isIntersecting ? play() : stop(), { threshold: .6 }).observe(t);
     else { t.onmouseenter = play; t.onmouseleave = stop; }
   });
@@ -94,6 +94,25 @@ function project(el) {
     </nav>`;
 }
 
+/* Autoplay on phones. iOS only autoplays videos that are muted and inline, and refuses
+   entirely in Low Power Mode until the visitor touches the page. So: set the flags as
+   properties too, play autoplay videos while they are in view, and retry every wanted
+   video on the first touch. */
+function tryPlay(v) {
+  v.muted = true; v.playsInline = true;
+  v.play().catch(() => {});
+}
+function autoplay() {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) { v.dataset.want = 1; tryPlay(v); }
+    else { delete v.dataset.want; v.pause(); }
+  }), { threshold: .25 });
+  document.querySelectorAll("video[autoplay]").forEach(v => io.observe(v));
+  const retry = () => document.querySelectorAll("video[data-want]").forEach(v => v.paused && tryPlay(v));
+  ["touchstart", "touchend", "click"].forEach(t => addEventListener(t, retry, { passive: true }));
+}
+
 /* Gentle fade-in on scroll */
 function fades() {
   const io = new IntersectionObserver(es => es.forEach(e => {
@@ -106,4 +125,5 @@ const page = document.body.dataset.page;
 if (page === "home") hero($(".hero"));
 if (page === "research") grid($(".grids"));
 if (page === "project") project($(".project"));
+autoplay();
 fades();
