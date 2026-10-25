@@ -72,7 +72,7 @@ const PROJECTS = [
     slug: "surgical-incisions",
     title: "Surgical incisions",
     area: "Surgical procedures",
-    media: ["surgical-procedure-overview", "plasty-concept", "v:plasty-optimisation", "v:plasty-closing", "v:suture-optimisation"],
+    media: ["v:surgical-procedure-overview-anim", "plasty-concept", "v:plasty-optimisation", "v:plasty-closing", "v:suture-optimisation"],
     wide: ["plasty-concept", "v:plasty-optimisation", "v:plasty-closing", "v:suture-optimisation"],
     text: `Where and how a surgeon cuts and sutures changes how tissue deforms and heals. Incisions and sutures modelled
       on fixed structured grids make such questions fast to explore, see
