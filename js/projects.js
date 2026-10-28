@@ -136,7 +136,7 @@ const PROJECTS = [
     slug: "fluid-structure",
     title: "Fluid-structure interaction",
     area: "Contact mechanics",
-    media: ["v:fsi-streamlines"],
+    media: ["v:fsi-valve-flow"],
     text: `A soft valve closing in a flowing fluid bends far and presses against its seat. Combining an immersed
       solid on a fixed grid with third-medium contact captures flow, large deformation and contact together, without
       remeshing or explicit contact detection. Ongoing work with Jure Čas and Casper Schousboe Andreasen, paper in preparation.`,
