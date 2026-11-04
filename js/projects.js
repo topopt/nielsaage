@@ -175,7 +175,8 @@ const PROJECTS = [
     slug: "interactive",
     title: "Interactive and computational design",
     area: "Design tools and teaching",
-    media: ["v:topopt-app-video", "dsc-furniture", "dsc-animals"],
+    media: ["v:topopt-app-video", "dsc-furniture", "dsc-animals", "v:topopt2d-app-video"],
+    wide: ["v:topopt2d-app-video"],
     text: `Topology optimisation in your hand: the TopOpt app lets anyone move loads and supports and watch the optimal
       structure evolve in real time, see <a href="https://doi.org/10.1007/s00158-012-0827-z">SMO (2012)</a>, and the 3D version
       brings this to tablets and desktops, see <a href="https://doi.org/10.1007/s00158-014-1214-8">SMO (2014)</a>. The TopOpt Game
