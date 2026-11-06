@@ -101,7 +101,7 @@ img, video { display: block; width: 100%; height: auto; }
 
 /* About */
 .about { max-width: 980px; margin: 40px auto 0; display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
-.portrait { aspect-ratio: 4/5; background: #f2f2f2; display: grid; place-items: center; color: var(--muted); }
+.portrait { aspect-ratio: 4/5; width: 100%; object-fit: cover; background: #f2f2f2; }
 .prose p + p { margin-top: 1em; }
 .links { margin-top: 40px; display: grid; gap: 10px; }
 
