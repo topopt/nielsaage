@@ -46,14 +46,18 @@ const PROJECTS = [
     slug: "heat-sinks",
     title: "Flow and heat",
     area: "Thermofluidics",
-    media: ["v:heat-sink-velocity", "v:heat-sink-temperature", "heat-sinks-coral"],
+    media: ["v:heat-sink-velocity-re3000", "v:heat-sink-temperature-re3000", "heat-sinks-coral"],
     heroFit: "large", // home slideshow: shown whole with a slimmer margin than the default "contain"
-    heroMedia: "v:heat-sink-temperature", // home slideshow shows this instead of media[0]
+    heroMedia: "v:heat-sink-temperature-re3000", // home slideshow shows this instead of media[0]
     leadWidth: 1100, // lead video at the same size as the gallery video below
     text: `A passive heat sink is cooled by the air flow its own heat sets in motion. Solving the fully coupled flow and
       heat transfer with up to 330 million unknowns lets topology optimisation design such sinks in three dimensions, see
       <a href="https://doi.org/10.1016/j.ijheatmasstransfer.2016.05.013">International Journal of Heat and Mass Transfer (2016)</a>.
-      The optimised sinks branch more as the flow gets stronger, the opposite of what two-dimensional designs suggest.`,
+      The optimised sinks branch more as the flow gets stronger, the opposite of what two-dimensional designs suggest.
+      The same approach now designs static mixers, passive pipe inserts without moving parts that blend two incoming
+      streams. Coupled to direct numerical simulation of the unsteady flow with the GPU code Neko, topology optimisation
+      reaches three-dimensional mixers at Reynolds numbers up to 3000; the animations show the flow speed and how the two
+      streams mix. Ongoing work.`,
   },
   {
     slug: "bone-like-infill",
